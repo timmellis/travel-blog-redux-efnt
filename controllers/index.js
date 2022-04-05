@@ -1,4 +1,4 @@
-const { Comment }  = require('../models')
+const { Comment, Locations }  = require('../models')
 
 
 const createComm = async (req, res) => {
@@ -13,23 +13,23 @@ const createComm = async (req, res) => {
     }
 }
 
-const getAllComms = async (req, res) => {
+const getAllLocs = async (req, res) => {
     try {
-        const comments = await Comment.find()
-        return res.status(200).json({ comments })
+        const locations = await Locations.find()
+        return res.status(200).json({ locations })
     } catch (error) {
         return res.status(500).send(error.message);
     }
 }
 
-const getCommById = async (req, res) => {
+const getLocById = async (req, res) => {
     try {
         const { id } = req.params;
-        const post = await Comment.findById(id)
-        if (comment) {
-            return res.status(200).json({ comment });
+        const location = await Locations.findById(id)
+        if (location) {
+            return res.status(200).json({ location });
         }
-        return res.status(404).send('Comment with the specified ID does not exists');
+        return res.status(404).send('Location with the specified ID does not exists');
     } catch (error) {
         return res.status(500).send(error.message);
     }
@@ -38,6 +38,6 @@ const getCommById = async (req, res) => {
 
 module.exports = {
     createComm,
-    getAllComms,
-    getCommById
+    getAllLocs,
+    getLocById
 }
