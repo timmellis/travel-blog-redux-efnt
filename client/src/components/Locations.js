@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { LoadLocations } from '../store/actions/LoadLocations'
+import { LoadLocations } from '../store/actions/LocationActions'
 
-const mapStateToProps = ({ locationsState }) => {
-  return { locationsState }
+const mapStateToProps = ({ locationState }) => {
+  return { locationState }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -13,17 +13,22 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+const Locations = (props) => {
+  useEffect(() => {
+    props.fetchLocations()
+  }, [])
 
-const Locations = (prop) => {
-
+  console.log(props)
   return (
-
     <div>
-      This is the locations landing page
+      <p>This is the locations landing page</p>
+      <ul>
+        {props.locationState.locations.locations.map((location) => (
+          <li key={location._id}>{location.name}</li>
+        ))}
+      </ul>
     </div>
-
   )
-
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Locations)

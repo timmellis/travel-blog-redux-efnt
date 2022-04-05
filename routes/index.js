@@ -1,12 +1,11 @@
-const { Router } = require('express');
-const controllers = require('../controllers/index');
-const router = Router();
+const { Router } = require('express')
+const controllers = require('../controllers/index')
+const router = Router()
 
-router.get('/comments', controllers.getAllComms);
+router.get('/locations', controllers.getAllLocs)
 
-router.post('/createComms', controllers.createComm);
+router.post('/createComms', controllers.createComm)
 
-router.get('/comments/:id', controllers.getCommById)
+router.get('/locations/:id', controllers.getLocById)
 
-
-module.exports = router;
+module.exports = router
