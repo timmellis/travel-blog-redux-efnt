@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const Comment = new Schema(
     {
-        Location: Location_id,
+        Location: {type: Schema.Types.ObjectId, ref: "locations"},
         comment: { type: String, required: true },
         userName: {type: String, required: true }
     },
