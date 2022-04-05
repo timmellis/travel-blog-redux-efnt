@@ -9,7 +9,13 @@ export const GetLocations = async () => {
     throw error
   }
 }
-
+export const GetLocationDetails = async () => {
+  try {
+    const res = await Client.get()
+  } catch (error) {
+    throw error
+  }
+}
 export const GetLocationComments = async (commentId) => {
   try {
     const res = await Client.get()
