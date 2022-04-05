@@ -1,4 +1,3 @@
-import res from 'express/lib/response'
 import Client from './'
 
 export const GetLocations = async () => {
@@ -9,7 +8,7 @@ export const GetLocations = async () => {
     throw error
   }
 }
-export const GetLocationDetails = async () => {
+export const GetLocationDetails = async (locationId) => {
   try {
     const res = await Client.get()
   } catch (error) {
