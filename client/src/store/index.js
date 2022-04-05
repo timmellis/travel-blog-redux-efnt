@@ -9,7 +9,7 @@ const store = createStore(
   combineReducers({
     locationState: LocationReducer,
     commentState: CommentReducer,
-    locationDetailState: LocationDetailReducer
+    locationDetailsState: LocationDetailReducer
   }),
   composeWithDevTools(applyMiddleware(thunk))
 )
