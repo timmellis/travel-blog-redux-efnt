@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { LoadLocations, LoadLocationComments } from '../store/actions/LoadLocations'
+import { LoadLocations } from '../store/actions/LoadLocations'
 
-const mapStateToProps = ({ locationState }) => {
-  return { locationState }
+const mapStateToProps = ({ locationsState }) => {
+  return { locationsState }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -19,7 +19,7 @@ const Locations = (prop) => {
   return (
 
     <div>
-      This is the locations page
+      This is the locations landing page
     </div>
 
   )
