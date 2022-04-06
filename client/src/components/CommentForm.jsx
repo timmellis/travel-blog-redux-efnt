@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom'
 
 import {
   CreateNewComment,
-  AddNewComment
+  AddNewComment,
+  CreateNewCommentName
 } from '../store/actions/CommentActions'
 
 const mapStateToProps = ({ commentState }) => {
@@ -13,27 +14,29 @@ const mapStateToProps = ({ commentState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createComment: (formValue) => dispatch(CreateNewComment(formValue)),
-    addComment: (newComment) => dispatch(AddNewComment(newComment))
+    createCommentName: (formValue) => dispatch(CreateNewCommentName(formValue)),
+    addComment: (newComment) => dispatch(AddNewComment(newComment)),
+    createNewComment: (formValue) => dispatch(CreateNewComment(formValue))
   }
 }
 
 const CommentForm = (props) => {
   let { id } = useParams()
-  const [newComment, setNewComment] = useState({
-    userName: '',
-    comment: '',
-    location: id
-  })
-  const handleChange = (event) => {
-    if (event.target.name === 'newName') {
-      setNewComment({ ...newComment, userName: event.target.value })
-    } else if (event.target.name === 'newComment') {
-      setNewComment({ ...newComment, comment: event.target.value })
-    }
+
+  const handleNameChange = (event) => {
+    props.createCommentName(event.target.value)
+  }
+
+  const handleCommentChange = (event) => {
+    props.createNewComment(event.target.value)
   }
   const handleSubmit = (event) => {
     event.preventDefault()
+    let newComment = {
+      userName: props.commentState.newCommentName,
+      comment: props.commentState.newComment,
+      location: id
+    }
     props.addComment(newComment)
   }
 
@@ -46,14 +49,14 @@ const CommentForm = (props) => {
           type="text"
           name="newName"
           value={props.newName}
-          onChange={handleChange}
+          onChange={handleNameChange}
         />
         Comment:
         <input
           type="text"
           name="newComment"
           value={props.newComment}
-          onChange={handleChange}
+          onChange={handleCommentChange}
         />
         <button type="submit" onClick={handleSubmit}>
           Submit
