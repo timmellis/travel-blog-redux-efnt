@@ -5,7 +5,7 @@ import {
   LoadLocationDetails,
   LoadLocationComments
 } from '../store/actions/LocationActions'
-
+import Comments from './Comments'
 const mapStateToProps = ({ locationDetailsState }) => {
   return { locationDetailsState }
 }
@@ -31,8 +31,14 @@ const LocationDetails = (props) => {
       <div>
         <h3 className="location-name">{details.name}</h3>
         <h4>{details.location}</h4>
-        <div className="location-img"><img src={details.image}  style={{maxWidth:'800px', maxHeight:'400px'}} /></div>
+        <div className="location-img">
+          <img
+            src={details.image}
+            style={{ maxWidth: '800px', maxHeight: '400px' }}
+          />
+        </div>
         <div className="location-name">{details.details}</div>
+        <Comments />
       </div>
     )
   }
