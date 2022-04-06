@@ -32,6 +32,7 @@ header h1 {
   height: calc(100vh - 120px);
 }
 .body-grid-middle {
+  height: calc(100vh - 120px);
   overflow-y: auto;
 } 
 
