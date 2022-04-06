@@ -19,7 +19,6 @@ const Comments = (props) => {
   useEffect(() => {
     props.fetchComments()
   }, [])
-  console.log('props: ', props)
   if (!props || !props.commentState.comments) {
     return <div>Now loading...</div>
   } else {

@@ -23,7 +23,6 @@ const LocationDetails = (props) => {
     props.fetchLocations(id)
   }, [id])
   const details = props.locationDetailsState.locationDetails
-  console.log('location details:', details)
   if (!props || !props.locationDetailsState.locationDetails) {
     return <div>Loading...</div>
   } else {
