@@ -35,9 +35,22 @@ const getLocById = async (req, res) => {
     }
 }
 
+const createLoc = async (req, res) => {
+    try {
+        const location = await new Locations(req.body)
+        await location.save()
+        return res.status(201).json({
+            location
+        });
+    } catch (error) {
+        return res.status(500).json({ error: error.message })
+    }
+}
+
 
 module.exports = {
     createComm,
     getAllLocs,
-    getLocById
+    getLocById,
+    createLoc
 }
