@@ -19,7 +19,7 @@ const Comments = (props) => {
   useEffect(() => {
     props.fetchComments()
   }, [])
-
+  console.log('props: ', props)
   if (!props || !props.commentState.comments) {
     return <div>Now loading...</div>
   } else {
@@ -27,13 +27,15 @@ const Comments = (props) => {
       <div>
         <p>This is the Comments component.</p>
         <div className="user-comments">
-          {props.commentState.comments.map((comment) => {
-            if (comment.location === id)
-              <div className="user-comment-wrapper" key={comment._id}>
-                <div className="user-name">{comment.userName}</div>
-                <div className="user-comment">{comment.comment}</div>
-              </div>
-          })}
+          {props.commentState.comments.map(
+            (comment) =>
+              comment.location === id && (
+                <div className="user-comment-wrapper" key={comment._id}>
+                  <div className="user-name">{comment.userName}</div>
+                  <div className="user-comment">{comment.comment}</div>
+                </div>
+              )
+          )}
         </div>
       </div>
     )
