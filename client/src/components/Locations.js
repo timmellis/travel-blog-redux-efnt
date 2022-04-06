@@ -33,7 +33,9 @@ if (!props || !props.locationState.locations) {
         <p>This is the locations landing page</p>
         <ul>
           {props.locationState.locations.map((location) => (
-            <li key={location._id}>{location.name}</li>
+            <Link to={`locations/${location._id}`}>
+              <li key={location._id}>{location.name}</li>
+              </Link>
           ))}
         </ul>
       </div>
