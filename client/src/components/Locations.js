@@ -17,7 +17,6 @@ const Locations = (props) => {
   useEffect(() => {
     props.fetchLocations()
   }, [])
-
   if (!props || !props.locationState.locations) {
     return <div>Loading...</div>
   } else {

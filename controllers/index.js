@@ -56,10 +56,24 @@ const createLoc = async (req, res) => {
   }
 }
 
+const AddLike = async (req, res) => {
+  try {
+    const likes = await Locations.updateOne(
+      { _id: req.params.id },
+      {
+        $Set: {
+          likes: req.body
+        }
+      }
+    )
+  } catch (error) {}
+}
+
 module.exports = {
   createComm,
   getAllLocs,
   getLocById,
   createLoc,
-  getAllComms
+  getAllComms,
+  AddLike
 }
