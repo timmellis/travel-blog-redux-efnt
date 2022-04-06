@@ -1,7 +1,8 @@
 import {
   GetLocations,
   GetLocationDetails,
-  GetLocationComments
+  GetLocationComments,
+  GetAllComments
 } from '../../services/LocationService'
 import { GET_LOCATIONS, GET_LOCATION_DETAILS, GET_COMMENTS } from '../types'
 
@@ -33,10 +34,10 @@ export const LoadLocationDetails = (id) => {
   }
 }
 
-export const LoadLocationComments = (id) => {
+export const LoadComments = (id) => {
   return async (dispatch) => {
     try {
-      const locationComments = await GetLocationComments(id)
+      const locationComments = await GetAllComments(id)
       dispatch({
         type: GET_COMMENTS,
         payload: locationComments
