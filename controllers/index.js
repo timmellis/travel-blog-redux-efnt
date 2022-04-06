@@ -13,6 +13,15 @@ const createComm = async (req, res) => {
     }
 }
 
+const getAllComms = async (req, res) => {
+    try {
+        const comments = await Comments.find()
+        return res.status(200).json({ comments })
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
 const getAllLocs = async (req, res) => {
     try {
         const locations = await Locations.find()
@@ -35,9 +44,23 @@ const getLocById = async (req, res) => {
     }
 }
 
+const createLoc = async (req, res) => {
+    try {
+        const location = await new Locations(req.body)
+        await location.save()
+        return res.status(201).json({
+            location
+        });
+    } catch (error) {
+        return res.status(500).json({ error: error.message })
+    }
+}
+
 
 module.exports = {
     createComm,
     getAllLocs,
-    getLocById
+    getLocById,
+    createLoc,
+    getAllComms
 }
