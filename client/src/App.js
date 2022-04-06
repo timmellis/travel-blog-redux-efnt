@@ -8,7 +8,7 @@ import CommentForm from './components/CommentForm'
 import Comments from './components/Comments'
 
 function App() {
-  return (
+  return (   
     <div className="App">
       <header>
         <h1>Exotic Travel Locations!</h1>
@@ -16,9 +16,13 @@ function App() {
 
       <div className="body-grid">
         <div className="body-grid-left">
-          <Routes>
-            <Route path="/locations/:id" element={<CommentForm />} />
-          </Routes>
+
+        <Link to={'/'}>
+            <div className='btn'>Home</div>
+          </Link>
+          <Link to={'/newpost'}>
+            <div className='btn'>Create New Post</div>
+          </Link>
         </div>
 
         <div className="body-grid-middle">
@@ -32,7 +36,9 @@ function App() {
         </div>
 
         <div className="body-grid-right">
-          <Link to={'/newpost'}>Create New Post</Link>
+                    <Routes>
+            <Route path="/locations/:id" element={<CommentForm />} />
+          </Routes>
         </div>
       </div>
     </div>
