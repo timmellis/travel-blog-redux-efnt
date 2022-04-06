@@ -8,7 +8,7 @@ import CommentForm from './components/CommentForm'
 import Comments from './components/Comments'
 
 function App() {
-  return (
+  return (   
     <div className="App">
       <header>
         <h1>Exotic Travel Locations!</h1>
