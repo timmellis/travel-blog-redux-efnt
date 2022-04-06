@@ -23,7 +23,7 @@ const Locations = (props) => {
 
   console.log("props",props)
 
-if (!props || !props.locationState.locations.locations) {
+if (!props || !props.locationState.locations) {
   return (
     <div>Loading...</div>
   )
@@ -32,7 +32,7 @@ if (!props || !props.locationState.locations.locations) {
       <div>
         <p>This is the locations landing page</p>
         <ul>
-          {props.locationState.locations.locations.map((location) => (
+          {props.locationState.locations.map((location) => (
             <li key={location._id}>{location.name}</li>
           ))}
         </ul>
