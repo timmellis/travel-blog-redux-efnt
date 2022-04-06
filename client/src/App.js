@@ -16,9 +16,12 @@ function App() {
 
       <div className="body-grid">
         <div className="body-grid-left">
-          <Routes>
-            <Route path="/" element={<CommentForm />} />
-          </Routes>
+        <Link to={'/'}>
+            <div className='btn'>Home</div>
+          </Link>
+          <Link to={'/newpost'}>
+            <div className='btn'>Create New Post</div>
+          </Link>
         </div>
 
         <div className="body-grid-middle">
@@ -32,7 +35,9 @@ function App() {
         </div>
 
         <div className="body-grid-right">
-          <Link to={'/newpost'}>Create New Post</Link>
+                    <Routes>
+            <Route path="/locations/:id" element={<CommentForm />} />
+          </Routes>
         </div>
       </div>
     </div>
