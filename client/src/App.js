@@ -17,7 +17,7 @@ function App() {
       <div className="body-grid">
         <div className="body-grid-left">
           <Routes>
-            <Route path="/" element={<CommentForm />} />
+            <Route path="/locations/:id" element={<CommentForm />} />
           </Routes>
         </div>
 
