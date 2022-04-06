@@ -61,5 +61,6 @@ module.exports = {
     createComm,
     getAllLocs,
     getLocById,
-    createLoc
+    createLoc,
+    getAllComms
 }
