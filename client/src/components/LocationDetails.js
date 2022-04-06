@@ -29,8 +29,10 @@ const LocationDetails = (props) => {
   } else {
     return (
       <div>
-        <p>This is the locations landing page</p>
-        <div className="location-name">{details.name}</div>
+        <h3 className="location-name">{details.name}</h3>
+        <h4>{details.location}</h4>
+        <div className="location-img"><img src={details.image}  style={{maxWidth:'800px', maxHeight:'400px'}} /></div>
+        <div className="location-name">{details.details}</div>
       </div>
     )
   }
