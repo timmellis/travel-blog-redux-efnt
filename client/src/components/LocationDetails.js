@@ -17,29 +17,23 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const LocationDetails = (props) => {
-
   let { id } = useParams()
 
   useEffect(() => {
     props.fetchLocations(id)
-
   }, [id])
-  if (!props || !props.locationDetailsState.locations) {
-    return (
-      <div>Loading...</div>
-    )
+  const details = props.locationDetailsState.locationDetails
+  console.log('location details:', details)
+  if (!props || !props.locationDetailsState.locationDetails) {
+    return <div>Loading...</div>
   } else {
-      return (
-        <div>
-          <p>This is the locations landing page</p>
-          <ul>
-            {props.locationDetailsState.locations.map((location) => (
-              <li key={location._id}>{location}</li>
-            ))}
-          </ul>
-        </div>
-      )
-    }
+    return (
+      <div>
+        <p>This is the locations landing page</p>
+        <div className="location-name">{details.name}</div>
+      </div>
+    )
   }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationDetails)
