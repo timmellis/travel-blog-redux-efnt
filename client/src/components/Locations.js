@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { LoadLocations } from '../store/actions/LocationActions'
 
-
 const mapStateToProps = ({ locationState }) => {
   return { locationState }
 }
@@ -15,19 +14,13 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const Locations = (props) => {
-
   useEffect(() => {
     props.fetchLocations()
-    console.log("useEffect",props);
   }, [])
 
-  console.log("props",props)
-
-if (!props || !props.locationState.locations) {
-  return (
-    <div>Loading...</div>
-  )
-} else {
+  if (!props || !props.locationState.locations) {
+    return <div>Loading...</div>
+  } else {
     return (
       <div>
         <p>This is the locations landing page</p>
