@@ -9,18 +9,28 @@ import Comments from './components/Comments'
 function App() {
   return (
     <div className="App">
-      <h1>Exotic Travel Locations!</h1>
-      <div className="flex-row">
-        <div className="left">
-          <Locations />
+      
+      <header>
+        <h1>Exotic Travel Locations!</h1>
+
+      </header>
+
+      <div className="body-grid">
+        <div className="body-grid-left">
+          Left content
         </div>
 
-        <div className="right">
+        <div className="body-grid-middle">
           <Routes>
+            <Route path="/" element={< Locations />} />
             <Route path="/locations/:id" element={<LocationDetails />} />
             <Route path="/commentform" element={<CommentForm />} />
             <Route path="/comments" element={<Comments />} />
           </Routes>
+        </div>
+
+        <div className="body-grid-right">
+          Right content
         </div>
       </div>
     </div>

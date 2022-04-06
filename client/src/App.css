@@ -1,15 +1,40 @@
-h3 {
-  text-align: 'center';
+html, body, * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align:center;
 }
 
-.flex-row {
-  display: flex;
+header {
+  margin-top: 0;
+  padding-top: 12px;
+  min-height: 120px;
+  background: rgb(233,191,0);
+  background: radial-gradient(circle, rgba(233,191,0,1) 0%, rgba(233,0,71,1) 24%, rgba(2,0,36,1) 100%);
+  background: url('https://thecreativeforum.com/wp-content/uploads/2021/02/Boston-Cityscape-at-Night-03.jpg');
+  background-position: center;
+  background-size: cover;
+
+  color:white;
+}
+header h1 {
+  background: rgba(0,0,0,.5);
 }
 
-.left {
-  flex: 1;
+.body-grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
 }
+.body-grid-left, .body-grid-right {
+  background: #777;
+  border: solid 2px darkslategray;
+  box-shadow: 0 0 4px black;
+  height: calc(100vh - 120px);
+}
+.body-grid-middle {
+  overflow-y: auto;
+} 
 
-.right {
-  flex: 2;
+li {
+  list-style: none;
 }
