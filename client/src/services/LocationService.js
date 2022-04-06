@@ -11,15 +11,16 @@ export const GetLocations = async () => {
 }
 export const GetLocationDetails = async (locationId) => {
   try {
-    const res = await Client.get()
+    const res = await Client.get(`/locations/${locationId}`)
+    return res.data
   } catch (error) {
     throw error
   }
 }
-export const GetLocationComments = async (commentId) => {
+export const GetAllComments = async () => {
   try {
-    const res = await Client.get()
-    return res.data.Comments
+    const res = await Client.get('/comments')
+    return res.data
   } catch (error) {
     throw error
   }
