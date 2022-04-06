@@ -9,6 +9,7 @@ import { GET_LOCATIONS, GET_LOCATION_DETAILS, GET_COMMENTS } from '../types'
 export const LoadLocations = () => {
   return async (dispatch) => {
     try {
+      console.log('loadLocations');
       const locations = await GetLocations()
       dispatch({
         type: GET_LOCATIONS,
