@@ -16,6 +16,7 @@ function App() {
 
       <div className="body-grid">
         <div className="body-grid-left">
+
         <Link to={'/'}>
             <div className='btn'>Home</div>
           </Link>

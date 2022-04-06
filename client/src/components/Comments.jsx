@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-// import {Link} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { GetAllComments } from '../store/actions/CommentActions'
 
 const mapStateToProps = ({ commentState }) => {
@@ -14,6 +14,8 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const Comments = (props) => {
+  let { id } = useParams()
+
   useEffect(() => {
     props.fetchComments()
   }, [])
@@ -25,12 +27,13 @@ const Comments = (props) => {
       <div>
         <p>This is the Comments component.</p>
         <div className="user-comments">
-          {props.commentState.comments.map((comment) => (
-            <div className="user-comment-wrapper" key={comment._id}>
-              <div className="user-name">{comment.userName}</div>
-              <div className="user-comment">{comment.comment}</div>
-            </div>
-          ))}
+          {props.commentState.comments.map((comment) => {
+            if (comment.location === id)
+              <div className="user-comment-wrapper" key={comment._id}>
+                <div className="user-name">{comment.userName}</div>
+                <div className="user-comment">{comment.comment}</div>
+              </div>
+          })}
         </div>
       </div>
     )
