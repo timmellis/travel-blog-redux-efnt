@@ -13,6 +13,15 @@ const createComm = async (req, res) => {
     }
 }
 
+const getAllComms = async (req, res) => {
+    try {
+        const comments = await Comments.find()
+        return res.status(200).json({ comments })
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
 const getAllLocs = async (req, res) => {
     try {
         const locations = await Locations.find()
