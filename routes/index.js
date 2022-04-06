@@ -8,6 +8,6 @@ router.get('/locations/:id', controllers.getLocById)
 router.get('/createLocation', controllers.createLoc)
 
 router.post('/createComment', controllers.createComm)
-router.get('/comments', controllers.GetAllComms)
+router.get('/comments', controllers.getAllComms)
 
 module.exports = router
