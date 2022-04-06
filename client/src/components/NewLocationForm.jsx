@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import {
   CreateNewLocation,
   AddNewLocation
-} from '..store/actions/LocationActions'
+} from '../store/actions/LocationActions'
 
 const mapStateToProps = ({ locationState }) => {
   return { locationState }
@@ -25,9 +26,10 @@ const NewLocationForm = (props) => {
     details: '',
     image: ''
   })
+  let navigate = useNavigate()
 
   const handleChange = (event) => {
-    if (event.targe.name === 'name') {
+    if (event.target.name === 'name') {
       setNewLocation({ ...newLocation, name: event.target.value })
     } else if (event.target.name === 'location') {
       setNewLocation({ ...newLocation, location: event.target.value })
@@ -41,12 +43,13 @@ const NewLocationForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     props.addLocation(newLocation)
+    navigate(`/`)
   }
 
   return (
     <div className="new-location-form">
       <h1>New Location Post</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         Location Name:
         <input
           type="text"
@@ -62,8 +65,9 @@ const NewLocationForm = (props) => {
           onChange={handleChange}
         />
         Location Details:
-        <input
-          type="text"
+        <textarea
+          rows="4"
+          cols="50"
           name="details"
           value={props.details}
           onChange={handleChange}
@@ -75,6 +79,7 @@ const NewLocationForm = (props) => {
           value={props.image}
           onChange={handleChange}
         />
+        <button type="submit">submit post</button>
       </form>
     </div>
   )

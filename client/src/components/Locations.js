@@ -28,7 +28,7 @@ const Locations = (props) => {
           {props.locationState.locations.map((location) => (
             <Link to={`locations/${location._id}`}>
               <li key={location._id}>{location.name}</li>
-              </Link>
+            </Link>
           ))}
         </ul>
       </div>
