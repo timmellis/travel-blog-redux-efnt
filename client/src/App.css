@@ -35,7 +35,18 @@ header h1 {
   height: calc(100vh - 120px);
   overflow-y: auto;
 } 
-
+   
 li {
   list-style: none;
+}
+
+.btn {
+  width:90%;
+  border: solid thin black;
+  border-radius: 4px;
+  margin: 2px auto;
+  padding:4px;
+  background: white;
+} .btn:hover {
+  background: #fed;
 }
