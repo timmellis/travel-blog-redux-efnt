@@ -3,7 +3,7 @@ import Client from './'
 export const GetLocations = async () => {
   try {
     const res = await Client.get('/locations')
-    
+
     return res.data
   } catch (error) {
     throw error
@@ -20,6 +20,15 @@ export const GetLocationDetails = async (locationId) => {
 export const GetAllComments = async () => {
   try {
     const res = await Client.get('/comments')
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const AddLocation = async (newLocation) => {
+  try {
+    const res = await Client.post('/createLocation', newLocation)
     return res.data
   } catch (error) {
     throw error
