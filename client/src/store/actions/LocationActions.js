@@ -9,7 +9,10 @@ import {
   GET_LOCATIONS,
   GET_LOCATION_DETAILS,
   GET_COMMENTS,
-  CREATE_LOCATION,
+  CREATE_NEW_LOCATION_NAME,
+  CREATE_NEW_LOCATION_STATE,
+  CREATE_NEW_LOCATION_DETAILS,
+  CREATE_NEW_LOCATION_IMAGE,
   ADD_LOCATION
 } from '../types'
 
@@ -56,8 +59,23 @@ export const LoadComments = (id) => {
   }
 }
 
-export const CreateNewLocation = (formValue) => ({
-  type: CREATE_LOCATION,
+export const CreateNewLocationName = (formValue) => ({
+  type: CREATE_NEW_LOCATION_NAME,
+  payload: formValue
+})
+
+export const CreateNewLocationState = (formValue) => ({
+  type: CREATE_NEW_LOCATION_STATE,
+  payload: formValue
+})
+
+export const CreateNewLocationDetails = (formValue) => ({
+  type: CREATE_NEW_LOCATION_DETAILS,
+  payload: formValue
+})
+
+export const CreateNewLocationImage = (formValue) => ({
+  type: CREATE_NEW_LOCATION_IMAGE,
   payload: formValue
 })
 

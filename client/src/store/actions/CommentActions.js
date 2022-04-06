@@ -1,5 +1,15 @@
 import { AddComment, GetComments } from '../../services/CommentService'
-import { CREATE_COMMENT, ADD_COMMENT, GET_COMMENTS } from '../types'
+import {
+  CREATE_COMMENT,
+  CREATE_COMMENT_NAME,
+  ADD_COMMENT,
+  GET_COMMENTS
+} from '../types'
+
+export const CreateNewCommentName = (formValue) => ({
+  type: CREATE_COMMENT_NAME,
+  payload: formValue
+})
 
 export const CreateNewComment = (formValue) => ({
   type: CREATE_COMMENT,
