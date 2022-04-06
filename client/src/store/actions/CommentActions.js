@@ -1,5 +1,5 @@
-import { AddComment } from '../../services/CommentService'
-import { CREATE_COMMENT, ADD_COMMENT } from '../types'
+import { AddComment, GetComments } from '../../services/CommentService'
+import { CREATE_COMMENT, ADD_COMMENT, GET_COMMENTS } from '../types'
 
 // export const CreateNewComment = () => {
 //   return async (dispatch) => {
@@ -27,6 +27,20 @@ export const AddNewComment = (newComment) => {
       dispatch({
         type: ADD_COMMENT,
         payload: newCommentToAdd
+      })
+    } catch (error) {
+      throw error
+    }
+  }
+}
+
+export const GetAllComments = () => {
+  return async (dispatch) => {
+    try {
+      const comments = await GetComments()
+      dispatch({
+        type: GET_COMMENTS,
+        payload: comments
       })
     } catch (error) {
       throw error

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -19,13 +19,21 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const CommentForm = (props) => {
+  const [newComment, setNewComment] = useState({
+    userName: '',
+    comment: '',
+    location: '624d99fb376620b92971801d'
+  })
   const handleChange = (event) => {
-    props.createComment(event.target.value)
+    if (event.target.name === 'newName') {
+      setNewComment({ ...newComment, userName: event.target.value })
+    } else if (event.target.name === 'newComment') {
+      setNewComment({ ...newComment, comment: event.target.value })
+    }
   }
-
   const handleSubmit = (event) => {
     event.preventDefault()
-    props.addComment(props.commentState.newComment)
+    props.addComment(newComment)
   }
 
   return (
@@ -46,6 +54,7 @@ const CommentForm = (props) => {
           value={props.newComment}
           onChange={handleChange}
         />
+        <input type="hidden" value="624d99fb376620b92971801d" />
         <button type="submit" onClick={handleSubmit}>
           Submit
         </button>

@@ -3,26 +3,25 @@ import { connect } from 'react-redux'
 // import {Link} from 'react-router-dom'
 import { LoadComments } from '../store/actions/LocationActions'
 
-const mapStateToProps = ({ ProductState }) => {
-  return { ProductState }
+const mapStateToProps = ({ commentState }) => {
+  return { commentState }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchProducts: () => dispatch(LoadComments())
+    fetchComments: () => dispatch(LoadComments())
   }
-} 
+}
 
 const Comments = (props) => {
-
   useEffect(() => {
     props.fetchComments()
-    
   }, [])
-
+  console.log(props)
   return (
     <div>
-      This is the Comments component.
+      <p>This is the Comments component.</p>
+      <ul></ul>
     </div>
   )
 }
