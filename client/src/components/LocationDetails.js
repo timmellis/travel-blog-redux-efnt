@@ -1,13 +1,9 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import {
-  LoadLocationDetails,
-  LoadLocationComments
-} from '../store/actions/LocationActions'
+import { LoadLocationDetails } from '../store/actions/LocationActions'
 import Comments from './Comments'
 import LikeButton from './LikeButton'
-
 
 const mapStateToProps = ({ locationDetailsState }) => {
   return { locationDetailsState }

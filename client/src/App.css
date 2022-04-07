@@ -50,3 +50,12 @@ li {
 } .btn:hover {
   background: #fed;
 }
+.location-wrapper {
+  display: flex;
+  flex-flow: column;
+  margin: 8px;
+}
+.location-wrapper img {
+  height: 300px;
+  width: auto;
+}
