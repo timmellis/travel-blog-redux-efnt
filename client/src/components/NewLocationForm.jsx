@@ -29,13 +29,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const NewLocationForm = (props) => {
-  // const [newLocation, setNewLocation] = useState({
-  //   name: '',
-  //   location: '',
-  //   likes: 0,
-  //   details: '',
-  //   image: ''
-  // })
   let navigate = useNavigate()
 
   const handleChange = (event) => {
@@ -60,7 +53,6 @@ const NewLocationForm = (props) => {
       details: props.locationState.newLocationDetails,
       image: props.locationState.newLocationImage
     }
-    console.log('newlocation:', newLocation)
     props.addLocation(newLocation)
     navigate(`/`)
   }

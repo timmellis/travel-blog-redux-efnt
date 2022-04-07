@@ -1,7 +1,6 @@
 import Client from './'
 
 export const AddComment = async (newComment) => {
-  console.log(newComment)
   try {
     const res = await Client.post('/createComment', newComment)
     return res.data

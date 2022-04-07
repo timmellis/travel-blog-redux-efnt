@@ -1,7 +1,6 @@
 const { Comment, Locations } = require('../models')
 
 const createComm = async (req, res) => {
-  console.log('req.body', req.body)
   try {
     const comment = await new Comment(req.body)
     await comment.save()
@@ -57,32 +56,17 @@ const createLoc = async (req, res) => {
 }
 
 const AddLike = async (req, res) => {
-  console.log("controller2", req.body);
+  console.log('controller2', req.body)
   try {
-    const likes = await Locations.findByIdAndUpdate(
-      req.params.id, req.body, {new:false}
-    )
+    const likes = await Locations.findByIdAndUpdate(req.params.id, req.body, {
+      new: false
+    })
   } catch (error) {
-    console.log("ADDLIKE ERROR", error)
+    console.log('ADDLIKE ERROR', error)
   }
 }
-// const AddLike = async (req, res) => {
-//   console.log("controller2", req.body);
-//   try {
-//     const likes = await Locations.updateOne(
-//       { _id: req.params.id },
-//       {
-//         $set: {
-//           likes: req.body
-//         }
-//       }
-//     )
-//   } catch (error) {
-//     console.log("ADDLIKE ERROR", error)
-//   }
-// }
 
-module.exports = { 
+module.exports = {
   createComm,
   getAllLocs,
   getLocById,

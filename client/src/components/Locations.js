@@ -21,12 +21,17 @@ const Locations = (props) => {
     return <div>Loading...</div>
   } else {
     return (
-      <div>
+      <div className="location-landing-page">
         <p>This is the locations landing page</p>
         <ul>
           {props.locationState.locations.map((location) => (
             <Link to={`locations/${location._id}`}>
-              <li key={location._id}>{location.name}</li>
+              <div className="location-wrapper">
+                <li key={location._id}>
+                  <img src={location.image} />
+                  <p>{location.name}</p>
+                </li>
+              </div>
             </Link>
           ))}
         </ul>

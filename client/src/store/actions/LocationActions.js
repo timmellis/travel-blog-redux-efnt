@@ -1,7 +1,6 @@
 import {
   GetLocations,
   GetLocationDetails,
-  GetLocationComments,
   GetAllComments,
   AddLocation
 } from '../../services/LocationService'
@@ -19,7 +18,6 @@ import {
 export const LoadLocations = () => {
   return async (dispatch) => {
     try {
-      console.log('loadLocations')
       const locations = await GetLocations()
       dispatch({
         type: GET_LOCATIONS,
