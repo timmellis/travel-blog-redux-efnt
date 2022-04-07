@@ -4,7 +4,7 @@ const router = Router()
 
 router.get('/locations', controllers.getAllLocs)
 router.get('/locations/:id', controllers.getLocById)
-router.put('/locations/:id', controllers.AddLike)
+router.put('/locations/like/:id', controllers.AddLike)
 
 router.post('/createLocation', controllers.createLoc)
 

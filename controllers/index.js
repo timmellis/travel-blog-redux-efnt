@@ -57,19 +57,32 @@ const createLoc = async (req, res) => {
 }
 
 const AddLike = async (req, res) => {
+  console.log("controller2", req.body);
   try {
-    const likes = await Locations.updateOne(
-      { _id: req.params.id },
-      {
-        $Set: {
-          likes: req.body
-        }
-      }
+    const likes = await Locations.findByIdAndUpdate(
+      req.params.id, req.body, {new:false}
     )
-  } catch (error) {}
+  } catch (error) {
+    console.log("ADDLIKE ERROR", error)
+  }
 }
+// const AddLike = async (req, res) => {
+//   console.log("controller2", req.body);
+//   try {
+//     const likes = await Locations.updateOne(
+//       { _id: req.params.id },
+//       {
+//         $set: {
+//           likes: req.body
+//         }
+//       }
+//     )
+//   } catch (error) {
+//     console.log("ADDLIKE ERROR", error)
+//   }
+// }
 
-module.exports = {
+module.exports = { 
   createComm,
   getAllLocs,
   getLocById,
